@@ -1,0 +1,36 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+body, textarea {
+  font-family: arial;
+  font-size: initial;
+  color: #666;
+}
+
+textarea {
+  width: 275px;
+  height: 75px;
+}
+
+.gold {
+  color: #e2bf81;
+}
+
+.side1 {
+  width: 225px;
+}
+
+.side2 {
+  width: 300px;
+}
+
+.main {
+  width: 500px;
+}
+
+button {
+  font-size: 1em;
+}

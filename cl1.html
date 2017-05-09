@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jobs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="appCtrl">
+    <div class="side">
+      <p>Who <input type="text" ng-model="person"></p>
+      <p>Job <input type="text" ng-model="job"></p>
+      <p>Company <input type="text" ng-model="company"></p>
+      <p>Skill 1 <input type="text" ng-model="skill1"></p>
+      <p>Skill 2 <input type="text" ng-model="skill2"></p>
+      <p>Skill 3 <input type="text" ng-model="skill3"></p>
+      <p>Tool 1 <input type="text" ng-model="tool1"></p>
+      <p>Tool 2 <input type="text" ng-model="tool2"></p>
+      <p>Framework <input type="text" ng-model="framework"></p>
+      <p>Personal point 1 <input type="text" ng-model="personal1"></p>
+      <p>Personal point 2 <input type="text" ng-model="personal2"></p>
+      <button ng-click="copy()">Copy</button> <button ng-click="reset()">Reset</button>
+    </div>
+    <div class="main cover" ng-if="current === 'cover'">
+      <div>Dear {{ person }},</div>
+<div>I am very excited to express my interest in the {{ job }} position at {{ company }}! {{ personal1 }} I love working with Javascript (particularly ES6 syntax), {{ skill2 }}, {{ skill3 }}, and tools like {{ tool1 }} and {{ tool2 }}. In my work I always show my ability to compose compelling visual design with seamless functionality, and I would love to contribute my skills at {{ company }}!</div>
+<div>I am interested in the way users perceive and interact with technology. What is easy, what is hard, and how can these things be improved? I love crafting software that is not only functional but also beautiful and intuitive for the user. My skills include the whole range of full stack development. I excel at JavaScript, ranging across multiple frameworks and libraries such as Angular, Backbone, and React. Lately I have been delving into mobile applications created with Ionic for iOS and Android, allowing me to work with responsive design. I also have extensive experience working with HTML and CSS, creating and styling site or app layout architecture. For back-end tech I have worked with many types, from Node and Express for servers to relational databases like MySQL and document databases like MongoDB.</div>
+<div>I want to say again how happy I would be to work at {{ company }}! {{ personal2 }} I am certain my skills in {{ skill1 }}, {{ framework }}, and {{ tool1 }} will make a strong addition to the company. To follow up please contact me at <span class="gold">206-713-6452</span>, or through email at <span class="gold">w.phrush@gmail.com</span>. I look forward to hearing from you!</div>
+      <div>Best regards,</div>
+      <div>Olivia Sabo-Rush</div>
+
+    </div>
+  </body>
+</html>

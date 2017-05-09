@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Jobs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="appCtrl">
+    <div class="flex">
+      <button ng-click="change('cover')">Cover Letter</button>
+      <button ng-click="change('followUp')">Follow Up Letter</button>
+      <button ng-click="change('thankYou')">Thank You Letter</button>
+      <button ng-click="change('rejection')">Rejection Letter</button>
+    </div>
+
+    <div class="flex">
+      <div class="side1">
+        <p>Who <input type="text" ng-model="person"></p>
+        <p>Job <input type="text" ng-model="job"></p>
+        <p>Company <input type="text" ng-model="company"></p>
+        <p ng-show="current === 'thankYou'">Connection <input type="text" ng-model="connection"></p>
+        <p>Skill 1 <input type="text" ng-model="skill1"></p>
+        <p>Skill 2 <input type="text" ng-model="skill2"></p>
+        <p>Skill 3 <input type="text" ng-model="skill3"></p>
+        <p>Tool 1 <input type="text" ng-model="tool1"></p>
+        <p>Tool 2 <input type="text" ng-model="tool2"></p>
+        <p>Framework <input type="text" ng-model="framework"></p>
+        <p>Salutation <input type="text" ng-model="salutation"></p>
+      </div>
+
+      <div class="side2">
+        <p>
+          Personal point 1 <textarea type="text" ng-model="personal1"></textarea>
+        </p>
+        <p ng-show="current === 'cover'">
+          Framework exp <textarea type="text" ng-model="frameworkExplanation"></textarea>
+        </p>
+        <p>
+          Personal point 2 <textarea type="text" ng-model="personal2"></textarea>
+        </p>
+        <p ng-show="current !== 'cover'">
+          Personal point 3 <textarea type="text" ng-model="personal3"></textarea>
+        </p>
+        <button ng-click="copy()">Copy</button> <button ng-click="reset()">Reset</button>
+      </div>
+
+      <!-- COVER LETTER -->
+<div class="main cover" ng-if="current === 'cover'">
+<p>Dear {{ person }},</p>
+
+<p>I am very excited to express my interest in the {{ job }} position at {{ company }}. {{ personal1 }} I have ample experience creating applications using Javascript, {{ skill2 }}, {{ skill3 }}, as well as tools like {{ tool1 }} {{ tool2 }}. {{ frameworkExplanation }} In my work I always show my ability to compose compelling visual design with seamless functionality, and I would love to contribute my skills at {{ company }}.</p>
+<p>I am inspired by seeing the way users perceive and interact with technology. What is easy, what is hard, and how can these things be improved? Crafting software that is not only functional but also beautiful and intuitive for the user is my passion. My skills include the whole range of full stack development. I excel at JavaScript, ranging across multiple frameworks and libraries such as Angular, jQuery, and React. I also have extensive experience working with HTML and CSS, creating and styling site/app layout architecture. Even in back-end I have worked with many different tech, from Node and Express for servers to relational databases like MySQL and document databases like MongoDB.</p>
+<p>I want to say again how happy I would be to work at {{ company }}! {{ personal2 }} I am certain my skills in {{ skill1 }}, {{ framework }}, and {{ tool1 }} will make a strong addition to the company. To follow up please contact me at <span class="gold">206-713-6452</span>, or through email at <span class="gold">w.phrush@gmail.com</span>. I look forward to hearing from you!</p>
+<p>{{ salutation }},</p>
+</div>
+
+      <!-- FOLLOW UP LETTER -->
+<div class="main followUp" ng-if="current === 'followUp'">
+<p>Dear {{ person }},</p>
+
+<p>My name is Olivia Sabo-Rush and I recently applied for the {{ job }} position at {{ company }}. </p>
+<p>Here are three reasons why I should be considered for this role:</p>
+<ol>
+<li>{{ personal1 }}</li>
+<li>{{ personal2 }}</li>
+<li>{{ personal3 }}</li>
+</ol>
+<p>For your convenience I've reattached my resume and cover letter. In them you'll find more about my work history and reasons to consider me for the position. You can contact me at 206-713-6452 or w.phrush@gmail.com</p>
+<p>{{ salutation }},</p>
+</div>
+
+      <!-- THANK YOU LETTER -->
+<div class="main thankYou" ng-if="current === 'thankYou'">
+<p>Dear {{ person }},</p>
+
+<p>Thank you so much for {{ connection }} with me today! It was great to meet you and learn more about {{ company }}. {{ personal1 }}</p>
+<p>{{ personal2 }}</p>
+<p>{{ personal3 }}</p>
+<p>{{ salutation }},</p>
+</div>
+
+      <!-- REJECTION LETTER -->
+<div class="main rejection" ng-if="current === 'rejection'">
+<p>Dear {{ person }},</p>
+<p>Thank you so much for reaching out to me, I really appreciate it {{ person }}. I wonder if you have any feedback for me moving forward? If you do I would greatly appreciate it; I’d like to know how to make myself a stronger candidate in the future. {{ personal1 }}</p>
+<p>{{ salutation }},</p>
+</div>
+    </div>
+  </body>
+</html>
